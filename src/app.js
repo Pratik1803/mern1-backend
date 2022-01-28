@@ -7,9 +7,11 @@ const loginRouter = require("./routers/login");
 const signupRouter = require("./routers/signup");
 const messageRouter = require("./routers/messages");
 const userInfoRouter = require("./routers/userInfo");
+const cors = require("cors");
 require('./database/connection');
 const port = process.env.PORT || 8000;
 
+app.use(cors());
 app.use(express.json());
 app.use(signupRouter);
 app.use(loginRouter);
