@@ -1,8 +1,12 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const router = new express.Router();
 const User = require(path.join(__dirname, "../models/user"));
 const Admin = require(path.join(__dirname, "../models/admin"));
+const cors = require("cors");
+
+app.use(cors());
 
 
 // Get the information of all users

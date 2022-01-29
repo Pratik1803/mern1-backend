@@ -1,9 +1,13 @@
 const express = require('express');
+const app = express();
 const router = new express.Router;
 const path = require("path");
 const User = require(path.join(__dirname, "../models/user"));
 const bcrypt = require("bcryptjs");
 const Admin = require(path.join(__dirname, "../models/admin"));
+const cors = require("cors");
+
+app.use(cors());
 
 // Check the login of user
 router.get("/login", async (req, res) => {

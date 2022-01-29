@@ -1,7 +1,12 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const router = new express.Router();
 const User = require(path.join(__dirname, "../models/user"));
+const cors = require("cors");
+
+app.use(cors());
+
 
 // To get user by id
 router.get("/user", async (req, res) => {
