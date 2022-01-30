@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DB = "mongodb+srv://prtk:Domin%40r400@cluster0.hmz55.mongodb.net/mern-1?retryWrites=true&w=majority";
+const DB = process.env.DB;
 // , {
 //     useNewUrlParser: true,
 //     useCreateIndex: true,

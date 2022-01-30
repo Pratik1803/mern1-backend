@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -18,10 +19,6 @@ app.use(loginRouter);
 app.use(messageRouter);
 app.use(userInfoRouter);
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
 // for admin
 
 // 1. to get list of all users
@@ -30,7 +27,7 @@ app.get("/admin/users", async (req, res) => {
         const users = await User.find();
         res.status(200).send(users);
     } catch (error) {
-        res.status(400).send(undefined);
+        res.status(400).send(error);
     }
 });
 
@@ -41,7 +38,7 @@ app.delete("/admin/users", async (req, res) => {
         const result = await User.findByIdAndDelete(_id);
         res.status(200).send(result)
     } catch (error) {
-        res.status(400).send(undefined)
+        res.status(400).send(error)
     }
 });
 
@@ -51,7 +48,7 @@ app.get("/admin/messages", async (req, res) => {
         const messages = await Message.find();
         res.status(200).send(messages);
     } catch (error) {
-        res.status(400).send(undefined)
+        res.status(400).send(error)
     }
 });
 
@@ -62,7 +59,7 @@ app.delete("/admin/messages", async (req, res) => {
         const messages = await Message.findByIdAndDelete(_id);
         res.status(200).send(messages);
     } catch (error) {
-        res.status(400).send(undefined)
+        res.status(400).send(error)
     }
 });
 
